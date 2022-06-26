@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/JulianSoto/solid-keep-alive/issues"
   },
-  "homepage": "https://github.com/JulianSoto/solid-keep-alive#readme"
+  "homepage": "https://github.com/JulianSoto/solid-keep-alive#readme",
+  "devDependencies": {
+    "rollup": "^2.75.7"
+  }
 }
