@@ -25,6 +25,8 @@
   },
   "homepage": "https://github.com/JulianSoto/solid-keep-alive#readme",
   "devDependencies": {
-    "rollup": "^2.75.7"
+    "rollup": "^2.75.7",
+    "tsc": "^2.0.4",
+    "typescript": "^4.7.4"
   }
 }
