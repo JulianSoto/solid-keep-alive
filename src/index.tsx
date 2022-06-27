@@ -1,8 +1,5 @@
-import { ParentProps } from 'solid-js';
 import { KeepAliveProvider } from './Provider';
+import KeepAlive from './KeepAlive';
 
-export default (props: ParentProps) => {
-  return <>{props.children}</>;
-};
-
+export { KeepAlive };
 export { KeepAliveProvider };
