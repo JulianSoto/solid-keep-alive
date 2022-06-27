@@ -9,6 +9,7 @@ export default {
   output: {
     dir: 'dist',
     format: 'es',
+    preserveModules: true,
   },
   plugins: [
     peerDepsExternal(),
