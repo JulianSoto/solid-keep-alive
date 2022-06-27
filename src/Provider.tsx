@@ -7,14 +7,14 @@ import {
 } from 'solid-js';
 import { Accessor, Owner } from 'solid-js/types/reactive/signal';
 
-interface KeepAliveElement {
+export interface KeepAliveElement {
   id: string;
   owner: Owner | null;
   children: JSX.Element;
   dispose: () => void;
 }
 
-type Store = [
+export type Store = [
   Accessor<KeepAliveElement[]>,
   {
     insertElement: (element: KeepAliveElement) => void;
