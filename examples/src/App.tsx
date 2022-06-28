@@ -5,7 +5,7 @@ const App: Component = () => {
   return (
     <div>
       <h1>solid-keep-alive examples</h1>
-      <KeepAlive>Inside of {'<KeepAlive />'}</KeepAlive>
+      <KeepAlive id="keep-alive">Inside of {'<KeepAlive />'}</KeepAlive>
     </div>
   );
 };
