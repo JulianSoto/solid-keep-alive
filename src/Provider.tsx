@@ -17,7 +17,7 @@ export interface KeepAliveElement {
 export type Store = [
   Accessor<KeepAliveElement[]>,
   {
-    insertElement: (element: KeepAliveElement) => void;
+    insertElement: (element: KeepAliveElement) => KeepAliveElement | undefined;
     removeElement: (id: string) => void;
   }
 ];
@@ -25,7 +25,7 @@ export type Store = [
 const KeepAliveContext = createContext<Store>([
   () => [],
   {
-    insertElement: () => void 0,
+    insertElement: () => undefined,
     removeElement: () => void 0,
   },
 ]);
@@ -37,6 +37,7 @@ const KeepAliveProvider = (props: ParentProps) => {
 
   const insertElement = (element: KeepAliveElement) => {
     setKeepAliveElements((prev) => [...prev, element]);
+    return element;
   };
 
   const removeElement = (id: string) => {
