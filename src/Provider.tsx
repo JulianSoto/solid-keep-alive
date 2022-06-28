@@ -30,7 +30,7 @@ const KeepAliveContext = createContext<Store>([
   },
 ]);
 
-const KeepAliveProvider = (props: ParentProps) => {
+export const KeepAliveProvider = (props: ParentProps) => {
   const [keepAliveElements, setKeepAliveElements] = createSignal<
     KeepAliveElement[]
   >([]);
@@ -41,7 +41,11 @@ const KeepAliveProvider = (props: ParentProps) => {
   };
 
   const removeElement = (id: string) => {
-    setKeepAliveElements((prev) => prev.filter((el) => el.id !== id));
+    const element = keepAliveElements().find((el) => el.id === id);
+    if (element) {
+      element.dispose();
+      setKeepAliveElements((prev) => prev.filter((el) => el.id !== element.id));
+    }
   };
 
   const store: Store = [keepAliveElements, { insertElement, removeElement }];
@@ -53,9 +57,6 @@ const KeepAliveProvider = (props: ParentProps) => {
   );
 };
 
-const useKeepAlive = () => {
+export const useKeepAlive = () => {
   return useContext(KeepAliveContext);
 };
-
-export { KeepAliveProvider };
-export { useKeepAlive };
