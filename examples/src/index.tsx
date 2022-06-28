@@ -3,5 +3,13 @@ import { render } from 'solid-js/web';
 
 import './index.css';
 import App from './App';
+import { KeepAliveProvider } from '../../src';
 
-render(() => <App />, document.getElementById('root') as HTMLElement);
+render(
+  () => (
+    <KeepAliveProvider>
+      <App />
+    </KeepAliveProvider>
+  ),
+  document.getElementById('root') as HTMLElement
+);
