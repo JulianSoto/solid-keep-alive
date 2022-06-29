@@ -7,7 +7,7 @@ import { KeepAliveProvider } from '../../src';
 
 render(
   () => (
-    <KeepAliveProvider>
+    <KeepAliveProvider maxElements={2}>
       <App />
     </KeepAliveProvider>
   ),
