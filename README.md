@@ -68,7 +68,7 @@ return (
         {/* this is not kept alive, everything here is unmounted immediately */}
         <ThirdView />
       </Match>
-    </Tabs>
+    </Switch>
     {/* ... */}
   </>
 );
