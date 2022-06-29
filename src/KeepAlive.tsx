@@ -14,7 +14,8 @@ interface KeepAliveProps {
 }
 
 const KeepAlive = (props: ParentProps<KeepAliveProps>) => {
-  const [keepAliveElements, { insertElement }] = useKeepAlive();
+  const [keepAliveElements, { insertElement, prioritizeElement }] =
+    useKeepAlive();
 
   const currentElement = createMemo(() =>
     keepAliveElements().find((el) => el.id === props.id)
@@ -34,6 +35,7 @@ const KeepAlive = (props: ParentProps<KeepAliveProps>) => {
 
   return () => {
     let element = currentElement();
+    if (element) prioritizeElement(element.id);
     return (
       element?.owner && runWithOwner(element.owner, () => element?.children)
     );
