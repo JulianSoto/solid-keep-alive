@@ -32,7 +32,7 @@ const Button = (
 };
 
 const App: Component = () => {
-  const [keepAliveElements] = useKeepAlive();
+  const [keepAliveElements, { removeElement }] = useKeepAlive();
   const [selectedTab, setSelectedTab] = createSignal<'one' | 'two' | 'three'>(
     'one'
   );
@@ -66,6 +66,9 @@ const App: Component = () => {
         <Match when={selectedTab() === 'one'}>
           <KeepAlive id="tab-one">
             <h1>Tab one</h1>
+            <button onclick={() => removeElement('tab-one')}>
+              Unmount tab
+            </button>
             <Counter />
           </KeepAlive>
         </Match>
