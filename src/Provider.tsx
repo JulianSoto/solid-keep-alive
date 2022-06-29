@@ -30,13 +30,19 @@ const KeepAliveContext = createContext<Store>([
   },
 ]);
 
-export const KeepAliveProvider = (props: ParentProps) => {
+export const KeepAliveProvider = (
+  props: ParentProps<{ maxElements?: number }>
+) => {
   const [keepAliveElements, setKeepAliveElements] = createSignal<
     KeepAliveElement[]
   >([]);
 
   const insertElement = (element: KeepAliveElement) => {
-    setKeepAliveElements((prev) => [...prev, element]);
+    setKeepAliveElements((prev) => {
+      let newArray = [...prev, element];
+      if (newArray.length > (props.maxElements || 10)) newArray.shift();
+      return newArray;
+    });
     return element;
   };
 
