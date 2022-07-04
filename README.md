@@ -2,6 +2,10 @@
 
 Keep you components alive even after parent's unmounts, saving signals and DOM elements in cache to reuse them.
 
+## Demo
+
+On StackBlitz: [stackblitz.com/edit/solid-keep-alive-demo](https://stackblitz.com/edit/solid-keep-alive-demo?file=src%2FApp.jsx)
+
 ## Installation
 
 ### With npm
