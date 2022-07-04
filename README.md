@@ -1,5 +1,7 @@
 # solid-keep-alive
 
+![npm](https://img.shields.io/npm/dw/solid-keep-alive?style=for-the-badge) ![GitHub Repo stars](https://img.shields.io/github/stars/JulianSoto/solid-keep-alive?style=for-the-badge)
+
 Keep you components alive even after parent's unmounts, saving signals and DOM elements in cache to reuse them.
 
 ## Demo
